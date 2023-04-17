@@ -26,4 +26,4 @@ bool Intersections::Intersect(Body& a, Body& b, Contact& contact)
 	}
 
 	return false;
-}
+}

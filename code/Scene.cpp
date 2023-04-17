@@ -46,17 +46,26 @@ Scene::Initialize
 ====================================================
 */
 void Scene::Initialize() {
-	Body body;
-	body.position = Vec3(0, 0, 10);
-	body.orientation = Quat(0, 0, 0, 1);
-	body.shape = new ShapeSphere(1.0f);
-	body.inverseMass = 1.0f;
-	bodies.push_back(body);
+	Body body1;
+	body1.position = Vec3(0, 0, 8);
+	body1.orientation = Quat(0, 0, 0, 1);
+	body1.shape = new ShapeSphere(1.0f);
+	body1.elasticity = 0.5f;
+	body1.inverseMass = 1.0f;
+	bodies.push_back(body1);
+	Body body2;
+	body2.position = Vec3(0, 10, 8);
+	body2.orientation = Quat(0, 0, 0, 1);
+	body2.shape = new ShapeSphere(1.0f);
+	body2.elasticity = 0.5f;
+	body2.inverseMass = 1.0f;
+	bodies.push_back(body2);
 
 	Body earth;
 	earth.position = Vec3(0, 0, -1000);
 	earth.orientation = Quat(0, 0, 0, 1);
 	earth.shape = new ShapeSphere(1000.0f);
+	earth.elasticity = 1.0f;
 	earth.inverseMass = 0.0f;
 	bodies.push_back(earth);
 
