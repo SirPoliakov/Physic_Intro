@@ -1,4 +1,6 @@
 #pragma once
+#include "code/Math/Matrix.h"
+
 class Shape {
 public:
 	enum class ShapeType
@@ -7,8 +9,8 @@ public:
 	};
 
 	virtual ShapeType GetType() const = 0;
-	virtual Vec3 GetCenterOfMass() const { return centerOfMass; }
 	virtual Mat3 InertiaTensor() const = 0;
+	virtual Vec3 GetCenterOfMass() const { return centerOfMass; }
 
 protected:
 	Vec3 centerOfMass;
@@ -23,6 +25,7 @@ public:
 
 	ShapeType GetType() const override { return ShapeType::SHAPE_SPHERE; }
 	Mat3 InertiaTensor() const override;
+
 	float radius;
 };
 
